@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="CreateAcc.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EditAcc.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Login.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MainBank.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Transfers.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TransfersHistory.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Wallet.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="CreateAcc.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EditAcc.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Login.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainBank.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Transfers.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TransfersHistory.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Wallet.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

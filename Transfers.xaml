@@ -1,0 +1,93 @@
+﻿<Page x:Class="bank.Transfers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:local="clr-namespace:bank"
+        mc:Ignorable="d"
+        Height="450" Width="800">
+    <Page.Resources>
+        <Style x:Key="Arrow" TargetType="Button">
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="#4da337"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#3e822c"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="LabelStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Width" Value="250"/>
+        </Style>
+
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="5,10"/>
+            <Setter Property="Background" Value="#3e822c"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#3e822c"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+    </Page.Resources>
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Style="{StaticResource Arrow}" Click="Button_Click">
+            <fa:FontAwesome Icon="ArrowLeft"/>
+        </Button>
+        <!-- Header -->
+        <TextBlock Text="Make a Transfer" 
+                   FontSize="24" 
+                   FontWeight="Bold" 
+                   Foreground="#3e822c" 
+                   Margin="0,0,0,20" 
+                   HorizontalAlignment="Center"/>
+
+        <!-- Form -->
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="300">
+            <!-- Recipient -->
+            <TextBlock Text="Recipient Name:" Style="{StaticResource LabelStyle}"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" Name="RecipientNameTextBox"/>
+
+            <!-- Account Number -->
+            <TextBlock Text="Recipient Account Login:" Style="{StaticResource LabelStyle}"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" Name="RecipientAccountTextBox"/>
+
+            <!-- Amount -->
+            <TextBlock Text="Amount:" Style="{StaticResource LabelStyle}"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" Name="AmountTextBox" InputScope="Number"/>
+
+            <!-- Description -->
+            <TextBlock Text="Title:" Style="{StaticResource LabelStyle}"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" Name="DescriptionTextBox" Height="60" TextWrapping="Wrap"/>
+
+            <!-- Submit Button -->
+            <Button Content="Send Transfer" 
+                    Style="{StaticResource ButtonStyle}" 
+                    HorizontalAlignment="Center" Click="ExecuteTransfer"/>
+        </StackPanel>
+        <Frame Name="MainFrame" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+    </Grid>
+</Page>

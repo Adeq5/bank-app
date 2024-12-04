@@ -1,0 +1,102 @@
+﻿<Page x:Class="bank.EditAcc"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      mc:Ignorable="d"
+      Height="450" Width="800">
+    <Page.Resources>
+        <Style x:Key="Arrow" TargetType="Button">
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="#4da337"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#3e822c"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="InputField" TargetType="TextBox">
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+
+        <Style x:Key="EditButton" TargetType="Button">
+            <Setter Property="Width" Value="20"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="#4da337"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Cursor" Value="Hand"/>
+                    <Setter Property="Background" Value="#3e822c"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <!-- Przycisk powrotu -->
+        <Button Style="{StaticResource Arrow}" Click="BackButton_Click">
+            <fa:FontAwesome Icon="ArrowLeft"/>
+        </Button>
+
+        <!-- Informacje użytkownika -->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,50,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Name: " FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+                <TextBlock Text="Kacper Nowak" FontSize="16" Name="NameDisplay" VerticalAlignment="Center"/>
+                <Button Style="{StaticResource EditButton}" Margin="10,0,0,0" Click="EditName_Click">
+                    <fa:FontAwesome Icon="Edit" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                <TextBlock Text="Login: " FontSize="16" FontWeight="Bold" VerticalAlignment="Center"/>
+                <TextBlock Text="kacpernowak" FontSize="16" Name="LoginDisplay" VerticalAlignment="Center"/>
+                <Button Style="{StaticResource EditButton}" Margin="10,0,0,0" Click="EditLogin_Click">
+                    <fa:FontAwesome Icon="Edit" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Panel edycji -->
+        <Grid Visibility="Collapsed" Name="EditPanel">
+            <TextBlock Text="Edit Your Information" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox Style="{StaticResource InputField}" Name="EditNameBox"/>
+                <TextBox Style="{StaticResource InputField}" Name="EditLoginBox"/>
+                <Button Content="Save Changes" Width="150" Height="40" Margin="0,20,0,0" Click="SaveButton_Click" Background="#4da337"/>
+            </StackPanel>
+        </Grid>
+
+        <Frame Name="MainFrame" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+    </Grid>
+</Page>
