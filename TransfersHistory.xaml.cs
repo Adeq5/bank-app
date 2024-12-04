@@ -93,7 +93,7 @@ namespace bank
                     var dateText = new TextBlock
                     {
                         Style = (Style)FindResource("FinalAmount"),
-                        Text = transaction.Date.ToString("mm-dd HH:mm"),
+                        Text = transaction.Date.ToString("MM-dd HH:mm"),
                         HorizontalAlignment = HorizontalAlignment.Right,
                         Margin = new Thickness(0, 0, 0, 0)
                     };
